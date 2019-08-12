@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img: 
+  format: MyString
+  resize: MyString
+  rotate: MyString
+  colorspace: MyString
+  image: one
+
+two:
+  img: 
+  format: MyString
+  resize: MyString
+  rotate: MyString
+  colorspace: MyString
+  image: two
