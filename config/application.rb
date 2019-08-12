@@ -31,5 +31,17 @@ module Progimg
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.paperclip_defaults = {
+        storage: :s3,
+        s3_region: Rails.application.credentials.config[:aws][:AWS_REGION],
+        url: Rails.application.credentials.config[:aws][:AWS_URL],
+        s3_credentials: {
+            bucket: Rails.application.credentials.config[:aws][:AWS_BUCKET],
+            access_key_id: Rails.application.credentials.config[:aws][:AWS_ACCESS_KEY_ID],
+            secret_access_key: Rails.application.credentials.config[:aws][:AWS_SECRET_ACCESS_KEY]
+        },
+        s3_protocol: :https
+    }
   end
 end
