@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  img: 
-  remote_url: MyString
+image_one:
+  remote_url: https://upload.wikimedia.org/wikipedia/en/9/9d/Disney_The_Lion_King_2019.jpg
 
-two:
-  img: 
-  remote_url: MyString
+image_two:
+  remote_url: https://upload.wikimedia.org/wikipedia/en/2/29/Finding_Nemo.jpg

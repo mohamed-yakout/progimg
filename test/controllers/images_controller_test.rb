@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ImagesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @image = images(:one)
+    @image = images(:image_one)
   end
 
   test "should get index" do
@@ -12,7 +12,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create image" do
     assert_difference('Image.count') do
-      post images_url, params: { image: { img: @image.img, remote_url: @image.remote_url } }, as: :json
+      post images_url, params: { image: { remote_url: @image.remote_url } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update image" do
-    patch image_url(@image), params: { image: { img: @image.img, remote_url: @image.remote_url } }, as: :json
+    patch image_url(@image), params: { image: { remote_url: @image.remote_url } }, as: :json
     assert_response 200
   end
 

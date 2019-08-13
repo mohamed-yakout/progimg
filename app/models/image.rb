@@ -11,7 +11,7 @@ class Image < ApplicationRecord
     self.img(:origin)
   end
 
-  before_save :set_image
+  before_validation :set_image
 
   def set_image
     self.img = URI.parse(self.remote_url).open

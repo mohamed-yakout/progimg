@@ -2,7 +2,10 @@ require 'test_helper'
 
 class TransferredImagesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @transferred_image = transferred_images(:one)
+    @image = images(:image_one)
+    @image.set_image
+    @image.save!
+    @transferred_image = transferred_images(:transferred_one)
   end
 
   test "should get index" do
@@ -12,7 +15,11 @@ class TransferredImagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create transferred_image" do
     assert_difference('TransferredImage.count') do
-      post transferred_images_url, params: { transferred_image: { colorspace: @transferred_image.colorspace, format: @transferred_image.format, image_id: @transferred_image.image_id, img: @transferred_image.img, resize: @transferred_image.resize, rotate: @transferred_image.rotate } }, as: :json
+      post transferred_images_url, params: { transferred_image: { colorspace: @transferred_image.colorspace,
+                                                                  format: @transferred_image.format,
+                                                                  image_id: @image.id,
+                                                                  resize: @transferred_image.resize,
+                                                                  rotate: @transferred_image.rotate } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +31,11 @@ class TransferredImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update transferred_image" do
-    patch transferred_image_url(@transferred_image), params: { transferred_image: { colorspace: @transferred_image.colorspace, format: @transferred_image.format, image_id: @transferred_image.image_id, img: @transferred_image.img, resize: @transferred_image.resize, rotate: @transferred_image.rotate } }, as: :json
+    patch transferred_image_url(@transferred_image), params: { transferred_image: { colorspace: @transferred_image.colorspace,
+                                                                                    format: @transferred_image.format,
+                                                                                    image_id: @image.id,
+                                                                                    resize: @transferred_image.resize,
+                                                                                    rotate: @transferred_image.rotate } }, as: :json
     assert_response 200
   end
 

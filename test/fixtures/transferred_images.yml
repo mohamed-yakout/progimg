@@ -1,17 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  img: 
-  format: MyString
-  resize: MyString
-  rotate: MyString
-  colorspace: MyString
-  image: one
+transferred_one:
+  format: png
+  resize: 50x50
+  rotate: 90
+  colorspace: Gray
+  image: image_one
 
-two:
-  img: 
-  format: MyString
-  resize: MyString
-  rotate: MyString
-  colorspace: MyString
-  image: two
+transferred_two:
+  format: png
+  resize: 250x250>
+  rotate: -90
+  colorspace: Gray
+  image_id: image_two
