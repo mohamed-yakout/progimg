@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Assumptions:**
 
-Things you may want to cover:
+1. This API is public API.
 
-* Ruby version
+2. No Version for this API.
 
-* System dependencies
+3. Two Tables only will be in DB, Images uploaded by user, and Transferred Images result of transformation.
 
-* Configuration
+4. No Validation for the Image Size. This one will set depend on the service will be free version for Users or Premium version.
 
-* Database creation
+5. Some images only valid `jpg|jpeg|png|gif`
 
-* Database initialization
+**Clone & Installment:**
 
-* How to run the test suite
+* Ruby Version: 2.6.3
 
-* Services (job queues, cache servers, search engines, etc.)
+* Rails Version: 5.2.2
 
-* Deployment instructions
+* Database Type: PostgreSQL.
 
-* ...
+* After Clone, add S3 Setting by the following: `EDITOR="vim" rails credentials:edit`, then add:
+
+```
+aws:
+        AWS_REGION: us-east-1
+        AWS_ACCESS_KEY_ID: XXXXX
+        AWS_SECRET_ACCESS_KEY: XXXXX
+        AWS_BUCKET: files
+        AWS_URL: files.s3-website-us-east-1.amazonaws.com
+
+```
+
+**Explanation:**
+
+* Upload & Delete Images by `paperclip` gem & Integrate with S3.
+
+* Use `mini_magick` for transformation of images.
+
+* User upload normal image, it'll be uploaded in `progimg` folder inside S3 Bucket. And for transferred images will be uploaded in `tranferred_progimg`.
+
+**TO DO:**
+
+* Depend on Users will use the transformation on production server, we can use background tasks or cron tab processes.
+
+- Delayed Job for upload & transfer images.
+
+* Type more test cases for test all versions of all images.
+
+* In Deployment, we can deploy two versions Free Version for public Users & Premium Versions for paid clients.
+

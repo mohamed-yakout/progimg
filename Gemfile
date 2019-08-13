@@ -44,8 +44,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# paperclip for upload & delete files from S3
 gem 'paperclip', '~> 6.0.0'
+# To integrate with S3
 gem 'aws-sdk-s3', '~> 1'
+# To transfer images
 gem 'mini_magick'
 
 # Use Active Model Serializers for data serialization
